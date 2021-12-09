@@ -1,0 +1,17 @@
+<div class="table-responsive">
+    <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Budget</th>
+                <th scope="col">Status</th>
+                <th scope="col">Users</th>
+                <th scope="col">Completion</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <app-product [articulo]="articulo" *ngFor="let articulo of articulos"></app-product>
+        </tbody>
+    </table>
+</div>

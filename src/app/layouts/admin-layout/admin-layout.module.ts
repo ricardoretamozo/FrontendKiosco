@@ -15,6 +15,7 @@ import { UserProfileComponent } from '../../pages/user-profile/user-profile.comp
 import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { VentasComponent } from 'src/app/pages/ventas/ventas.component';
+import { ProductsComponent } from '../../components/articulos/articulos.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -34,7 +35,8 @@ import { VentasComponent } from 'src/app/pages/ventas/ventas.component';
     TablesComponent,
     IconsComponent,
     MapsComponent,
-    VentasComponent
+    VentasComponent,
+    ProductsComponent
   ]
 })
 

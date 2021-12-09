@@ -6,5 +6,5 @@ export interface ArticulosI {
     descripcion: String;
     nombre: String;
     usuario: String;
-    perecero: String;
+    //perecero: String;
 }

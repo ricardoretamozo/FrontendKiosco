@@ -13,7 +13,7 @@ import {AutocompleteLibModule} from 'angular-ng-autocomplete';
 
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-
+//import { ProductsComponent } from '../app/components/articulos/articulos.component';
 
 @NgModule({
   imports: [
@@ -26,11 +26,13 @@ import { ComponentsModule } from './components/components.module';
     RouterModule,
     AppRoutingModule,
     AutocompleteLibModule
+    
   ],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     AuthLayoutComponent
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
