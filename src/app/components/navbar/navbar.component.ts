@@ -2,6 +2,8 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
+import { UsuarioI } from 'src/app/models/usuario.interface';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,8 +14,19 @@ export class NavbarComponent implements OnInit {
   public focus;
   public listTitles: any[];
   public location: Location;
-  constructor(location: Location,  private element: ElementRef, private router: Router) {
+  usuario: string = ""
+  private infor:Array<any> = []
+  constructor(
+    location: Location,
+    private element: ElementRef, 
+    private router: Router,
+    private userS: UserService
+    ) {
     this.location = location;
+    this.userS.getUsuarios().subscribe((data: any) => {
+      this.infor = data
+      this.usuario = this.infor.find(usuario => usuario.email === atob(localStorage.getItem('user'))).nombre
+    })
   }
 
   ngOnInit() {
@@ -31,6 +44,11 @@ export class NavbarComponent implements OnInit {
         }
     }
     return 'Dashboard';
+  }
+
+  logOut(){
+    localStorage.removeItem('token');
+    this.router.navigate(['login']);
   }
 
 }

@@ -45,6 +45,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         let dataRes = data;
         if (dataRes.message == undefined){
           localStorage.setItem("token",dataRes.token);
+          localStorage.setItem("user",btoa(form['email']));
           this.router.navigate(['dashboard']);
         }
       },
