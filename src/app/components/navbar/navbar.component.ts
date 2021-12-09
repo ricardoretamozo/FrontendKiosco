@@ -2,8 +2,6 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
-import { UsuarioI } from 'src/app/models/usuario.interface';
-import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,22 +13,17 @@ export class NavbarComponent implements OnInit {
   public listTitles: any[];
   public location: Location;
   usuario: string = ""
-  private infor:Array<any> = []
   constructor(
     location: Location,
     private element: ElementRef, 
-    private router: Router,
-    private userS: UserService
+    private router: Router
     ) {
     this.location = location;
-    this.userS.getUsuarios().subscribe((data: any) => {
-      this.infor = data
-      this.usuario = this.infor.find(usuario => usuario.email === atob(localStorage.getItem('user'))).nombre
-    })
   }
 
   ngOnInit() {
     this.listTitles = ROUTES.filter(listTitle => listTitle);
+    this.usuario = atob(localStorage.getItem('user'));
   }
   getTitle(){
     var titlee = this.location.prepareExternalUrl(this.location.path());
@@ -47,7 +40,7 @@ export class NavbarComponent implements OnInit {
   }
 
   logOut(){
-    localStorage.removeItem('token');
+    localStorage.clear();
     this.router.navigate(['login']);
   }
 

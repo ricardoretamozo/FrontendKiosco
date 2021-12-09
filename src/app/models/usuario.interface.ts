@@ -1,10 +1,17 @@
+import { StringMap } from "@angular/compiler/src/compiler_facade_interface";
+import { StringDecoder } from "string_decoder";
+
 export interface UsuarioI{
-    rol: String;
-    tienda: String;
-    username: String;
-    email: String;
-    telefono: String;
-    direccion: String;
-    nombre: String;
     apellido: String;
+    createdAt: String;
+    direccion: String;
+    email: String;
+    nombre: String;
+    password: StringDecoder;
+    rol: StringMap;
+    telefono: String;
+    tienda: StringMap;
+    udatedAt: String;
+    username: String;
+    _id: String;
 }
